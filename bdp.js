@@ -277,11 +277,11 @@ BDP.Helper = {
 
 
 BDP.Helper.PreProcess.listChunk = function(context, part, parts) {
-    var chunkSize = ((context.list.length - 1) / parts) + 1;
+    var chunkSize = parseInt((context.list.length - 1) / parts, 10) + 1;
     var subList = context.list.slice(chunkSize * part, chunkSize * (part + 1));
-    return {
+    return _.defaults({
         list: subList
-    };
+    }, context);
 };
 
 
